@@ -1,0 +1,8 @@
+/* TEAM */
+Developer: Fomedes
+Website: https://fomedes.dev
+
+/* SITE */
+Built with: Astro + Tailwind CSS
+Location: United Kingdom
+Year: 2026

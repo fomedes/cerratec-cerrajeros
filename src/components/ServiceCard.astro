@@ -1,0 +1,60 @@
+---
+interface Props {
+  titulo: string;
+  descripcion: string;
+  precio?: string;
+  href?: string;
+}
+
+const { titulo, descripcion, precio, href } = Astro.props;
+---
+
+<div
+  class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 sm:p-8 h-full flex flex-col border border-slate-200 hover:border-amber-400 hover:-translate-y-1"
+>
+  <!-- Title -->
+  <h3 class="text-lg sm:text-xl font-bold text-slate-900 mb-3">{titulo}</h3>
+
+  <!-- Description -->
+  <p class="text-slate-600 text-sm sm:text-base mb-4 flex-grow leading-relaxed">
+    {descripcion}
+  </p>
+
+  <!-- Price and CTA -->
+  <div
+    class="flex items-center justify-between mt-auto pt-4 border-t border-slate-100"
+  >
+    {
+      precio && (
+        <span class="text-amber-600 font-bold text-base sm:text-lg">
+          {precio}
+        </span>
+      )
+    }
+    {
+      href ? (
+        <a
+          href={href}
+          class="text-blue-900 hover:text-amber-600 font-semibold text-sm sm:text-base flex items-center space-x-1 touch-manipulation transition-colors"
+        >
+          <span>Más info</span>
+          <svg
+            class="w-4 h-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5l7 7-7 7"
+            />
+          </svg>
+        </a>
+      ) : (
+        <span class="text-slate-400 text-sm">Consultar</span>
+      )
+    }
+  </div>
+</div>

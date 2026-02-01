@@ -1,0 +1,455 @@
+---
+import CTAButton from "../components/CTAButton.astro";
+import FloatingWhatsApp from "../components/FloatingWhatsApp.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import SectionWrapper from "../components/SectionWrapper.astro";
+import { siteConfig } from "../config/siteConfig";
+import serviciosData from "../data/servicios.json";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const servicios = serviciosData.servicios;
+const caracteristicasGenerales = serviciosData.caracteristicasGenerales;
+const marcas = serviciosData.marcas;
+---
+
+<BaseLayout
+  title="Servicios de Cerrajería 24h en Tarragona"
+  description="Todos nuestros servicios de cerrajería: apertura de puertas, cambio de cerraduras, cerrajería de autos, cajas fuertes y más. Disponibles 24/7 en el interior de Tarragona."
+>
+  <Header />
+
+  <main class="pt-20">
+    <!-- Hero Section -->
+    <section
+      class="relative bg-gradient-to-br from-blue-900 via-blue-800 to-slate-900 text-white py-16 sm:py-24 overflow-hidden"
+    >
+      <!-- Background Pattern -->
+      <div
+        class="absolute inset-0 opacity-10"
+        style="background-image: url(&quot;data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E&quot;);"
+      >
+      </div>
+
+      <div class="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+        <div class="text-center">
+          <!-- Badge -->
+          <div
+            class="inline-flex items-center space-x-2 bg-amber-500/20 text-amber-300 px-4 py-2 rounded-full text-sm font-medium mb-6"
+          >
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+              <path
+                fill-rule="evenodd"
+                d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z"
+                clip-rule="evenodd"></path>
+            </svg>
+            <span>Servicio urgente 24/7</span>
+          </div>
+
+          <!-- Main Heading -->
+          <h1
+            class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 leading-tight"
+          >
+            Nuestros Servicios de<br />
+            <span class="text-amber-400">Cerrajería</span>
+          </h1>
+
+          <!-- Subheading -->
+          <p
+            class="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto mb-8 leading-relaxed"
+          >
+            Soluciones profesionales para hogares, negocios y vehículos.
+            Disponibles las 24 horas del día, los 7 días de la semana.
+          </p>
+
+          <!-- Quick CTA -->
+          <div
+            class="flex flex-col sm:flex-row justify-center gap-4 max-w-md mx-auto"
+          >
+            <CTAButton
+              href={`tel:${siteConfig.phone.raw}`}
+              variant="urgent"
+              size="lg"
+              fullWidth
+            >
+              <svg
+                class="w-5 h-5 mr-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                ></path>
+              </svg>
+              Llamar Ahora
+            </CTAButton>
+            <CTAButton
+              href={`https://wa.me/${siteConfig.phone.whatsapp}`}
+              variant="secondary"
+              size="lg"
+              fullWidth
+            >
+              <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+                ></path>
+              </svg>
+              WhatsApp
+            </CTAButton>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Grid -->
+    <SectionWrapper bgClass="bg-white">
+      <div class="text-center mb-12">
+        <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-4">
+          Todos nuestros servicios
+        </h2>
+        <p class="text-slate-600 max-w-2xl mx-auto">
+          Ofrecemos una amplia gama de servicios de cerrajería para cubrir todas
+          tus necesidades
+        </p>
+      </div>
+
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
+      >
+        {
+          servicios.map((servicio) => (
+            <div
+              id={servicio.id}
+              class="bg-white border border-slate-200 rounded-xl p-6 hover:shadow-xl hover:border-amber-400 transition-all duration-300 scroll-mt-24"
+            >
+              <div class="flex items-start justify-between mb-4">
+                {servicio.precio && (
+                  <span class="bg-amber-100 text-amber-800 text-sm font-semibold px-3 py-1 rounded-full">
+                    {servicio.precio}
+                  </span>
+                )}
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 mb-2">
+                {servicio.titulo}
+              </h3>
+              <p class="text-slate-600 text-sm mb-4">{servicio.descripcion}</p>
+              <ul class="space-y-2">
+                {servicio.caracteristicas.map((caracteristica) => (
+                  <li class="flex items-center text-sm text-slate-600">
+                    <svg
+                      class="w-4 h-4 text-green-500 mr-2 flex-shrink-0"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                    {caracteristica}
+                  </li>
+                ))}
+              </ul>
+              <div class="mt-6 pt-4 border-t border-slate-100">
+                <a
+                  href={`tel:${siteConfig.phone.raw}`}
+                  class="inline-flex items-center text-blue-600 hover:text-amber-600 font-semibold text-sm transition"
+                >
+                  <svg
+                    class="w-4 h-4 mr-1"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                    />
+                  </svg>
+                  Solicitar servicio
+                </a>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </SectionWrapper>
+
+    <!-- General Features -->
+    <SectionWrapper bgClass="bg-slate-50">
+      <div class="text-center mb-12">
+        <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-4">
+          ¿Por qué elegirnos?
+        </h2>
+        <p class="text-slate-600 max-w-2xl mx-auto">
+          Todas las ventajas de trabajar con nosotros
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {
+          caracteristicasGenerales.map((caracteristica) => (
+            <div class="flex items-center bg-white p-4 rounded-xl shadow-sm">
+              <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mr-3">
+                <svg
+                  class="w-5 h-5 text-green-600"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </div>
+              <span class="text-sm font-medium text-slate-700">
+                {caracteristica}
+              </span>
+            </div>
+          ))
+        }
+      </div>
+    </SectionWrapper>
+
+    <!-- Brands Section -->
+    <SectionWrapper bgClass="bg-white border-y border-slate-200">
+      <div class="text-center mb-8">
+        <h2 class="text-xl font-bold text-slate-900 mb-2">
+          Trabajamos con las mejores marcas
+        </h2>
+        <p class="text-slate-600 text-sm">
+          Instalamos y reparamos cerraduras de los fabricantes más reconocidos
+        </p>
+      </div>
+      <div class="flex flex-wrap justify-center gap-6 sm:gap-10">
+        {
+          marcas.map((marca) => (
+            <span class="text-slate-400 font-semibold text-lg sm:text-xl hover:text-blue-600 transition">
+              {marca}
+            </span>
+          ))
+        }
+      </div>
+    </SectionWrapper>
+
+    <!-- Pricing Info -->
+    <SectionWrapper bgClass="bg-slate-50">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-4">
+            Precios transparentes
+          </h2>
+          <p class="text-slate-600 max-w-2xl mx-auto">
+            Sin sorpresas ni costes ocultos. Te informamos del precio antes de
+            empezar cualquier trabajo.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+          <div class="grid grid-cols-1 md:grid-cols-2">
+            <!-- Left Column -->
+            <div class="p-6 sm:p-8">
+              <h3 class="text-lg font-bold text-slate-900 mb-4">
+                Nuestro compromiso
+              </h3>
+              <ul class="space-y-3">
+                <li class="flex items-start">
+                  <svg
+                    class="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clip-rule="evenodd"></path>
+                  </svg>
+                  <span class="text-slate-600"
+                    ><strong class="text-slate-900">Sin desplazamiento</strong> en
+                    nuestra zona de cobertura</span
+                  >
+                </li>
+                <li class="flex items-start">
+                  <svg
+                    class="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clip-rule="evenodd"></path>
+                  </svg>
+                  <span class="text-slate-600"
+                    ><strong class="text-slate-900">Presupuesto previo</strong> antes
+                    de realizar el trabajo</span
+                  >
+                </li>
+                <li class="flex items-start">
+                  <svg
+                    class="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clip-rule="evenodd"></path>
+                  </svg>
+                  <span class="text-slate-600"
+                    ><strong class="text-slate-900">Factura detallada</strong> con
+                    todos los conceptos</span
+                  >
+                </li>
+                <li class="flex items-start">
+                  <svg
+                    class="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clip-rule="evenodd"></path>
+                  </svg>
+                  <span class="text-slate-600"
+                    ><strong class="text-slate-900">Garantía</strong> en mano de obra
+                    y materiales</span
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <!-- Right Column -->
+            <div class="bg-blue-900 p-6 sm:p-8 text-white">
+              <h3 class="text-lg font-bold mb-4">Formas de pago</h3>
+              <div class="space-y-4">
+                <div class="flex items-center">
+                  <div
+                    class="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center mr-3"
+                  >
+                    <svg
+                      class="w-5 h-5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z"></path>
+                      <path
+                        fill-rule="evenodd"
+                        d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z"
+                        clip-rule="evenodd"></path>
+                    </svg>
+                  </div>
+                  <span>Tarjeta de crédito/débito</span>
+                </div>
+                <div class="flex items-center">
+                  <div
+                    class="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center mr-3"
+                  >
+                    <svg
+                      class="w-5 h-5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z"
+                        clip-rule="evenodd"></path>
+                    </svg>
+                  </div>
+                  <span>Efectivo</span>
+                </div>
+                <div class="flex items-center">
+                  <div
+                    class="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center mr-3"
+                  >
+                    <svg
+                      class="w-5 h-5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        d="M11 17a1 1 0 001.447.894l4-2A1 1 0 0017 15V9.236a1 1 0 00-1.447-.894l-4 2a1 1 0 00-.553.894V17zM15.211 6.276a1 1 0 000-1.788l-4.764-2.382a1 1 0 00-.894 0L4.789 4.488a1 1 0 000 1.788l4.764 2.382a1 1 0 00.894 0l4.764-2.382zM4.447 8.342A1 1 0 003 9.236V15a1 1 0 00.553.894l4 2A1 1 0 009 17v-5.764a1 1 0 00-.553-.894l-4-2z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <span>Bizum</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </SectionWrapper>
+
+    <!-- Emergency CTA Section -->
+    <section class="py-16 bg-gradient-to-r from-orange-500 to-amber-500">
+      <div class="mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl text-center">
+        <div class="mb-6">
+          <span
+            class="inline-flex items-center space-x-2 bg-white/20 text-white px-4 py-2 rounded-full text-sm font-medium"
+          >
+            <span class="w-2 h-2 bg-white rounded-full animate-pulse"></span>
+            <span>URGENCIAS 24/7</span>
+          </span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4">
+          ¿Necesitas alguno de estos servicios?
+        </h2>
+        <p class="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
+          Llámanos ahora y te atendemos en menos de 30 minutos. Disponibles las
+          24 horas del día.
+        </p>
+        <div
+          class="flex flex-col sm:flex-row justify-center gap-4 max-w-md mx-auto"
+        >
+          <CTAButton
+            href={`tel:${siteConfig.phone.raw}`}
+            variant="urgent"
+            size="lg"
+            fullWidth
+          >
+            <svg
+              class="w-5 h-5 mr-2"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+              ></path>
+            </svg>
+            Llamar Ahora
+          </CTAButton>
+          <CTAButton
+            href={`https://wa.me/${siteConfig.phone.whatsapp}`}
+            variant="secondary"
+            size="lg"
+            fullWidth
+          >
+            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+              ></path>
+            </svg>
+            WhatsApp
+          </CTAButton>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+  <FloatingWhatsApp />
+</BaseLayout>

@@ -1,0 +1,141 @@
+{
+  "servicios": [
+    {
+      "id": "apertura-puertas",
+      "titulo": "Apertura de Puertas",
+      "descripcion": "Apertura de puertas sin daños. Servicio urgente 24/7 para cuando te has quedado fuera de casa o has perdido las llaves.",
+      "icon": "🔓",
+      "caracteristicas": [
+        "Sin daños en la cerradura",
+        "Servicio en menos de 30 minutos",
+        "Todo tipo de puertas",
+        "Profesionales cualificados"
+      ],
+      "precio": "Desde 60€"
+    },
+    {
+      "id": "cambio-cerraduras",
+      "titulo": "Cambio de Cerraduras",
+      "descripcion": "Instalación y cambio de cerraduras de alta seguridad. Trabajamos con las mejores marcas del mercado.",
+      "icon": "🔒",
+      "caracteristicas": [
+        "Cerraduras de alta seguridad",
+        "Marcas premium (Tesa, Mottura, Lince)",
+        "Garantía del fabricante",
+        "Asesoramiento personalizado"
+      ],
+      "precio": "Desde 80€"
+    },
+    {
+      "id": "cerraduras-seguridad",
+      "titulo": "Cerraduras de Seguridad",
+      "descripcion": "Instalación de cerraduras antipalanca, antibumping y antitaladro para máxima protección de tu hogar o negocio.",
+      "icon": "🛡️",
+      "caracteristicas": [
+        "Sistemas antibumping",
+        "Protección antipalanca",
+        "Cilindros antitaladro",
+        "Certificados de seguridad"
+      ],
+      "precio": "Desde 120€"
+    },
+    {
+      "id": "bombines",
+      "titulo": "Bombines y Cilindros",
+      "descripcion": "Instalación y reparación de bombines de alta seguridad. Solución rápida y efectiva.",
+      "icon": "🔑",
+      "caracteristicas": [
+        "Bombines de seguridad",
+        "Sistemas de llave maestra",
+        "Compatibles con todo tipo de puertas",
+        "Instalación inmediata"
+      ],
+      "precio": "Desde 50€"
+    },
+    {
+      "id": "cerrajeria-autos",
+      "titulo": "Cerrajería de Autos",
+      "descripcion": "Apertura de vehículos y duplicado de llaves de coche. Servicio especializado para todo tipo de vehículos.",
+      "icon": "🚗",
+      "caracteristicas": [
+        "Apertura sin daños",
+        "Duplicado de llaves",
+        "Programación de mandos",
+        "Atención 24 horas"
+      ],
+      "precio": "Desde 70€"
+    },
+    {
+      "id": "puertas-blindadas",
+      "titulo": "Puertas Blindadas",
+      "descripcion": "Instalación de puertas blindadas y acorazadas. Máxima seguridad para tu hogar o negocio.",
+      "icon": "🚪",
+      "caracteristicas": [
+        "Puertas certificadas",
+        "Diferentes grados de seguridad",
+        "Instalación profesional",
+        "Garantía de fábrica"
+      ],
+      "precio": "Consultar"
+    },
+    {
+      "id": "cajas-fuertes",
+      "titulo": "Cajas Fuertes",
+      "descripcion": "Instalación, apertura y reparación de cajas fuertes. Servicio especializado.",
+      "icon": "🏦",
+      "caracteristicas": [
+        "Todo tipo de cajas fuertes",
+        "Apertura sin destrucción",
+        "Instalación y anclaje",
+        "Mantenimiento"
+      ],
+      "precio": "Desde 90€"
+    },
+    {
+      "id": "duplicado-llaves",
+      "titulo": "Duplicado de Llaves",
+      "descripcion": "Duplicado de todo tipo de llaves: casa, coche, moto, candados. Servicio rápido.",
+      "icon": "🔐",
+      "caracteristicas": [
+        "Llaves de seguridad",
+        "Llaves de coche con chip",
+        "Llaves de trasteros",
+        "Servicio inmediato"
+      ],
+      "precio": "Desde 15€"
+    },
+    {
+      "id": "reparacion-cierres",
+      "titulo": "Reparación de Cierres",
+      "descripcion": "Reparación de cierres metálicos, persianas y sistemas de seguridad comerciales.",
+      "icon": "🏪",
+      "caracteristicas": [
+        "Cierres metálicos",
+        "Persianas de seguridad",
+        "Mantenimiento preventivo",
+        "Atención urgente"
+      ],
+      "precio": "Desde 75€"
+    }
+  ],
+  "caracteristicasGenerales": [
+    "Servicio 24 horas, 7 días a la semana",
+    "Sin desplazamiento en la zona local",
+    "Presupuesto sin compromiso",
+    "Profesionales certificados",
+    "Garantía en todos los trabajos",
+    "Precios transparentes",
+    "Pago en efectivo o tarjeta",
+    "Factura detallada"
+  ],
+  "marcas": [
+    "Tesa",
+    "Mottura",
+    "Lince",
+    "Iseo",
+    "Ezcurra",
+    "Mul-T-Lock",
+    "Dom",
+    "Kaba"
+  ]
+}

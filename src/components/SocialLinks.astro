@@ -1,0 +1,25 @@
+---
+import { siteConfig } from "../config/siteConfig";
+import { socialIcons, type SocialIconKey } from "../icons/socialIcons";
+---
+
+<div class="flex space-x-4">
+  {
+    siteConfig.social.map(({ key, url, label }) => {
+      const Icon = socialIcons[key as SocialIconKey];
+      if (!Icon) return null;
+
+      return (
+        <a
+          href={url}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={label}
+          class="text-slate-400 hover:text-amber-400 transition"
+        >
+          <Icon />
+        </a>
+      );
+    })
+  }
+</div>

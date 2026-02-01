@@ -1,0 +1,677 @@
+---
+import CTAButton from "../../components/CTAButton.astro";
+import FloatingWhatsApp from "../../components/FloatingWhatsApp.astro";
+import Footer from "../../components/Footer.astro";
+import Header from "../../components/Header.astro";
+import SectionWrapper from "../../components/SectionWrapper.astro";
+import ServiceCard from "../../components/ServiceCard.astro";
+import { siteConfig } from "../../config/siteConfig";
+import municipiosData from "../../data/municipios.json";
+import serviciosData from "../../data/servicios.json";
+import LocalidadLayout from "../../layouts/LocalidadLayout.astro";
+
+// Generate static paths for all municipalities
+export function getStaticPaths() {
+  const paths: { params: { slug: string }; props: MunicipioProps }[] = [];
+
+  municipiosData.grupos.forEach((grupo) => {
+    grupo.municipios.forEach((municipio) => {
+      paths.push({
+        params: { slug: municipio.slug },
+        props: {
+          municipio,
+          grupoNombre: grupo.nombre,
+          municipiosCercanos: grupo.municipios
+            .filter((m) => m.slug !== municipio.slug)
+            .slice(0, 4),
+        },
+      });
+    });
+  });
+
+  return paths;
+}
+
+interface Municipio {
+  id: string;
+  nombre: string;
+  slug: string;
+  provincia: string;
+  descripcion: string;
+  poblacion: string;
+  codigoPostal: string;
+  destacados: string[];
+}
+
+interface MunicipioProps {
+  municipio: Municipio;
+  grupoNombre: string;
+  municipiosCercanos: Municipio[];
+}
+
+const { municipio, grupoNombre, municipiosCercanos } = Astro.props;
+const servicios = serviciosData.servicios.slice(0, 6);
+const marcas = serviciosData.marcas;
+const whatsappUrl = `https://wa.me/${siteConfig.phone.whatsapp}?text=${encodeURIComponent(`Hola, necesito un cerrajero en ${municipio.nombre}`)}`;
+---
+
+<LocalidadLayout
+  municipio={municipio.nombre}
+  provincia={municipio.provincia}
+  descripcion={municipio.descripcion}
+>
+  <Header />
+
+  <main class="pt-20">
+    <!-- Hero Section -->
+    <section
+      class="relative bg-gradient-to-br from-blue-900 via-blue-800 to-slate-900 text-white py-16 sm:py-24 overflow-hidden"
+    >
+      <!-- Background Pattern -->
+      <div
+        class="absolute inset-0 opacity-10"
+        style="background-image: url(&quot;data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E&quot;);"
+      >
+      </div>
+
+      <div class="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+        <div class="text-center">
+          <!-- Urgency Badge -->
+          <div
+            class="inline-flex items-center space-x-2 bg-amber-500/20 text-amber-300 px-4 py-2 rounded-full text-sm font-medium mb-6 animate-pulse"
+          >
+            <span class="w-2 h-2 bg-green-400 rounded-full"></span>
+            <span>Disponibles ahora en {municipio.nombre}</span>
+          </div>
+
+          <!-- Main Heading -->
+          <h1
+            class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 leading-tight"
+          >
+            Cerrajería 24 Horas en<br />
+            <span class="text-amber-400">{municipio.nombre}</span>
+          </h1>
+
+          <!-- Subheading -->
+          <p
+            class="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto mb-8 leading-relaxed"
+          >
+            {municipio.descripcion}
+          </p>
+
+          <!-- Location Info -->
+          <div
+            class="flex flex-wrap justify-center gap-4 text-sm text-slate-300 mb-8"
+          >
+            <span class="flex items-center space-x-1">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <path
+                  fill-rule="evenodd"
+                  d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                  clip-rule="evenodd"></path>
+              </svg>
+              <span>{municipio.nombre}, {municipio.provincia}</span>
+            </span>
+            <span class="flex items-center space-x-1">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <span>Llegada en &lt;30 min</span>
+            </span>
+            <span class="flex items-center space-x-1">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <path
+                  d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"
+                ></path>
+              </svg>
+              <span>Disponible 24/7</span>
+            </span>
+          </div>
+
+          <!-- CTA Buttons -->
+          <div
+            class="flex flex-col sm:flex-row justify-center gap-4 max-w-md mx-auto"
+          >
+            <CTAButton
+              href={`tel:${siteConfig.phone.raw}`}
+              variant="urgent"
+              size="lg"
+              fullWidth
+            >
+              <svg
+                class="w-5 h-5 mr-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                ></path>
+              </svg>
+              Llamar Ahora
+            </CTAButton>
+            <CTAButton
+              href={whatsappUrl}
+              variant="secondary"
+              size="lg"
+              fullWidth
+            >
+              <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+                ></path>
+              </svg>
+              WhatsApp
+            </CTAButton>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Areas We Cover Section -->
+    <!-- {
+      municipio.destacados.length > 0 && (
+        <section class="py-12 bg-white border-b border-slate-200">
+          <div class="mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+            <div class="text-center mb-8">
+              <h2 class="text-2xl font-bold text-slate-900 mb-2">
+                Zonas de {municipio.nombre} que cubrimos
+              </h2>
+              <p class="text-slate-600">
+                Llegamos a cualquier punto del municipio en minutos
+              </p>
+            </div>
+            <div class="flex flex-wrap justify-center gap-3">
+              {municipio.destacados.map((zona) => (
+                <span class="bg-blue-50 text-blue-800 px-4 py-2 rounded-full text-sm font-medium border border-blue-200">
+                  {zona}
+                </span>
+              ))}
+              <span class="bg-amber-50 text-amber-800 px-4 py-2 rounded-full text-sm font-medium border border-amber-200">
+                + Alrededores
+              </span>
+            </div>
+          </div>
+        </section>
+      )
+    } -->
+
+    <!-- Why Choose Us Section -->
+    <SectionWrapper bgClass="bg-white">
+      <div class="mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+        <div class="text-center mb-12">
+          <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-4">
+            Por qué elegirnos en {municipio.nombre}
+          </h2>
+          <p class="text-slate-600 max-w-2xl mx-auto">
+            Somos el servicio de cerrajería de confianza para los vecinos de {
+              municipio.nombre
+            }. Conocemos la zona y llegamos rápidamente a cualquier punto.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Feature 1 -->
+          <div
+            class="bg-white rounded-xl p-6 text-center shadow-md hover:shadow-lg transition"
+          >
+            <div
+              class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <svg
+                class="w-7 h-7 text-blue-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <h3 class="font-bold text-slate-900 mb-2">Respuesta Rápida</h3>
+            <p class="text-sm text-slate-600">
+              Llegamos en menos de 30 minutos a cualquier punto de {
+                municipio.nombre
+              }
+            </p>
+          </div>
+
+          <!-- Feature 2 -->
+          <div
+            class="bg-white rounded-xl p-6 text-center shadow-md hover:shadow-lg transition"
+          >
+            <div
+              class="w-14 h-14 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <svg
+                class="w-7 h-7 text-amber-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="font-bold text-slate-900 mb-2">100% Garantizado</h3>
+            <p class="text-sm text-slate-600">
+              Garantía en todos nuestros trabajos y materiales
+            </p>
+          </div>
+
+          <!-- Feature 3 -->
+          <div
+            class="bg-white rounded-xl p-6 text-center shadow-md hover:shadow-lg transition"
+          >
+            <div
+              class="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <svg
+                class="w-7 h-7 text-green-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="font-bold text-slate-900 mb-2">Precios Justos</h3>
+            <p class="text-sm text-slate-600">
+              Sin sorpresas. Presupuesto antes de empezar
+            </p>
+          </div>
+
+          <!-- Feature 4 -->
+          <div
+            class="bg-white rounded-xl p-6 text-center shadow-md hover:shadow-lg transition"
+          >
+            <div
+              class="w-14 h-14 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <svg
+                class="w-7 h-7 text-purple-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                ></path>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              </svg>
+            </div>
+            <h3 class="font-bold text-slate-900 mb-2">Conocemos la Zona</h3>
+            <p class="text-sm text-slate-600">
+              Cerrajeros locales que conocen {municipio.nombre}
+            </p>
+          </div>
+        </div>
+      </div>
+    </SectionWrapper>
+
+    <!-- Services Section -->
+    <SectionWrapper bgClass="bg-slate-50">
+      <div class="mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+        <div class="text-center mb-12">
+          <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-4">
+            Servicios de Cerrajería en {municipio.nombre}
+          </h2>
+          <p class="text-slate-600 max-w-2xl mx-auto">
+            Ofrecemos todos los servicios de cerrajería para hogares, negocios y
+            vehículos en {municipio.nombre} y alrededores.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {
+            servicios.map((servicio) => (
+              <ServiceCard
+                titulo={servicio.titulo}
+                descripcion={servicio.descripcion}
+                precio={servicio.precio}
+                href={`/servicios#${servicio.id}`}
+              />
+            ))
+          }
+        </div>
+
+        <div class="text-center mt-8">
+          <CTAButton href="/servicios" variant="primary" size="md">
+            Ver todos los servicios
+          </CTAButton>
+        </div>
+      </div>
+    </SectionWrapper>
+
+    <!-- Brands Section -->
+    <SectionWrapper bgClass="bg-bg-slate-50 border-y border-slate-200">
+      <div class="mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+        <div class="text-center mb-8">
+          <h2 class="text-xl font-bold text-slate-900 mb-2">
+            Trabajamos con las mejores marcas
+          </h2>
+          <p class="text-slate-600 text-sm">
+            Cerraduras de alta seguridad de fabricantes reconocidos
+          </p>
+        </div>
+        <div class="flex flex-wrap justify-center gap-4 sm:gap-8">
+          {
+            marcas.map((marca) => (
+              <span class="text-slate-500 font-semibold text-sm sm:text-base hover:text-blue-600 transition">
+                {marca}
+              </span>
+            ))
+          }
+        </div>
+      </div>
+    </SectionWrapper>
+
+    <!-- Emergency CTA Section -->
+    <section class="py-16 bg-gradient-to-r from-orange-500 to-amber-500">
+      <div class="mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl text-center">
+        <div class="mb-6">
+          <span
+            class="inline-flex items-center space-x-2 bg-white/20 text-white px-4 py-2 rounded-full text-sm font-medium"
+          >
+            <span class="w-2 h-2 bg-white rounded-full animate-pulse"></span>
+            <span>URGENCIAS 24/7</span>
+          </span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4">
+          ¿Necesitas un cerrajero urgente en {municipio.nombre}?
+        </h2>
+        <p class="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
+          No te preocupes, estamos disponibles las 24 horas del día, los 7 días
+          de la semana. Llámanos y llegaremos en minutos.
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <a
+            href={`tel:${siteConfig.phone.raw}`}
+            class="inline-flex items-center justify-center bg-white text-orange-600 hover:bg-slate-100 px-8 py-4 rounded-lg font-bold text-lg shadow-xl hover:shadow-2xl transition touch-manipulation"
+          >
+            <svg
+              class="w-6 h-6 mr-2"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+              ></path>
+            </svg>
+            {siteConfig.phone.formatted}
+          </a>
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-lg font-bold text-lg shadow-xl hover:shadow-2xl transition touch-manipulation"
+          >
+            <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+              ></path>
+            </svg>
+            WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Nearby Municipalities Section -->
+    <SectionWrapper bgClass="bg-white">
+      {
+        municipiosCercanos.length > 0 && (
+          <section class="py-16 bg-white">
+            <div class="mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+              <div class="text-center mb-12">
+                <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-4">
+                  También servimos en municipios cercanos
+                </h2>
+                <p class="text-slate-600">
+                  Además de {municipio.nombre}, cubrimos estas localidades
+                  cercanas
+                </p>
+              </div>
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 lg:gap-5">
+                {municipiosCercanos.map((cercano) => (
+                  <a
+                    href={`/localidades/${cercano.slug}`}
+                    class="bg-slate-50 hover:bg-amber-50 border border-slate-200 hover:border-amber-400 rounded-lg p-4 sm:p-5 text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1 touch-manipulation"
+                  >
+                    <div class="bg-amber-50 w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-3 overflow-hidden">
+                      <img
+                        src={`/images/crests/${cercano.slug}.png`}
+                        alt={`${cercano.nombre} escudo`}
+                        class="w-10 h-10 object-contain"
+                      />
+                    </div>
+                    <div class="font-semibold text-slate-900 text-sm sm:text-base">
+                      {cercano.nombre}
+                    </div>
+                  </a>
+                ))}
+              </div>
+              <div class="text-center mt-10">
+                <CTAButton href="/localidades" variant="primary" size="lg">
+                  Ver Todas las Localidades
+                </CTAButton>
+              </div>
+            </div>
+          </section>
+        )
+      }
+    </SectionWrapper>
+
+    <!-- FAQ Section -->
+    <SectionWrapper bgClass="bg-slate-50">
+      <div class="mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+        <div class="text-center mb-12">
+          <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-4">
+            Preguntas frecuentes sobre cerrajería en {municipio.nombre}
+          </h2>
+        </div>
+
+        <div class="space-y-4">
+          <!-- FAQ Item 1 -->
+          <details
+            class="group bg-white rounded-xl shadow-md border border-slate-200"
+          >
+            <summary
+              class="flex items-center justify-between p-6 cursor-pointer list-none"
+            >
+              <span class="font-semibold text-slate-900"
+                >¿Cuánto tardáis en llegar a {municipio.nombre}?</span
+              >
+              <svg
+                class="w-5 h-5 text-slate-500 group-open:rotate-180 transition-transform"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </summary>
+            <div class="px-6 pb-6 text-slate-600">
+              Normalmente llegamos en menos de 30 minutos a cualquier punto de {
+                municipio.nombre
+              }. Conocemos bien la zona y tenemos técnicos cercanos para
+              garantizar una respuesta rápida.
+            </div>
+          </details>
+
+          <!-- FAQ Item 2 -->
+          <details
+            class="group bg-white rounded-xl shadow-md border border-slate-200"
+          >
+            <summary
+              class="flex items-center justify-between p-6 cursor-pointer list-none"
+            >
+              <span class="font-semibold text-slate-900"
+                >¿Cuánto cuesta una apertura de puerta urgente?</span
+              >
+              <svg
+                class="w-5 h-5 text-slate-500 group-open:rotate-180 transition-transform"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </summary>
+            <div class="px-6 pb-6 text-slate-600">
+              El precio de una apertura de puerta en {municipio.nombre} parte desde
+              60€, dependiendo del tipo de cerradura y la hora del servicio. Siempre
+              damos presupuesto antes de empezar el trabajo.
+            </div>
+          </details>
+
+          <!-- FAQ Item 3 -->
+          <details
+            class="group bg-white rounded-xl shadow-md border border-slate-200"
+          >
+            <summary
+              class="flex items-center justify-between p-6 cursor-pointer list-none"
+            >
+              <span class="font-semibold text-slate-900"
+                >¿Trabajáis fines de semana y festivos?</span
+              >
+              <svg
+                class="w-5 h-5 text-slate-500 group-open:rotate-180 transition-transform"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </summary>
+            <div class="px-6 pb-6 text-slate-600">
+              Sí, ofrecemos servicio 24 horas, los 7 días de la semana,
+              incluyendo fines de semana y festivos. Siempre hay un cerrajero
+              disponible para atenderte en {municipio.nombre}.
+            </div>
+          </details>
+
+          <!-- FAQ Item 4 -->
+          <details
+            class="group bg-white rounded-xl shadow-md border border-slate-200"
+          >
+            <summary
+              class="flex items-center justify-between p-6 cursor-pointer list-none"
+            >
+              <span class="font-semibold text-slate-900"
+                >¿Hay cargo por desplazamiento?</span
+              >
+              <svg
+                class="w-5 h-5 text-slate-500 group-open:rotate-180 transition-transform"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </summary>
+            <div class="px-6 pb-6 text-slate-600">
+              No cobramos desplazamiento en {municipio.nombre} ni en su zona local.
+              El precio que te damos incluye todo el servicio.
+            </div>
+          </details>
+        </div>
+      </div>
+    </SectionWrapper>
+
+    <!-- Final CTA Section -->
+    <section class="py-16 bg-blue-900">
+      <div class="mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl text-center">
+        <h2 class="text-2xl sm:text-3xl font-bold text-white mb-4">
+          Tu cerrajero de confianza en {municipio.nombre}
+        </h2>
+        <p class="text-blue-200 text-lg mb-8 max-w-2xl mx-auto">
+          Profesionales locales, precios justos y disponibilidad 24/7. Estamos
+          aquí para ayudarte.
+        </p>
+        <div
+          class="flex flex-col sm:flex-row justify-center gap-4 max-w-md mx-auto"
+        >
+          <CTAButton
+            href={`tel:${siteConfig.phone.raw}`}
+            variant="urgent"
+            size="lg"
+            fullWidth
+          >
+            <svg
+              class="w-5 h-5 mr-2"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+              ></path>
+            </svg>
+            Llamar Ahora
+          </CTAButton>
+          <CTAButton href={whatsappUrl} variant="secondary" size="lg" fullWidth>
+            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+              ></path>
+            </svg>
+            WhatsApp
+          </CTAButton>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+  <FloatingWhatsApp />
+</LocalidadLayout>

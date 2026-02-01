@@ -1,0 +1,62 @@
+---
+interface Props {
+  href: string;
+  variant?: "primary" | "secondary" | "urgent";
+  size?: "sm" | "md" | "lg";
+  fullWidth?: boolean;
+  icon?: string;
+  class?: string;
+}
+
+const {
+  href,
+  variant = "primary",
+  size = "md",
+  fullWidth = false,
+  icon,
+  class: additionalClasses = "",
+} = Astro.props;
+
+const baseClasses =
+  "inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-300 touch-manipulation";
+
+const variantClasses = {
+  primary:
+    "bg-blue-900 hover:bg-blue-950 active:bg-slate-900 text-white shadow-lg hover:shadow-xl hover:-translate-y-0.5",
+  secondary:
+    "bg-green-500 hover:bg-green-600 active:bg-green-700 text-white shadow-lg hover:shadow-xl hover:-translate-y-0.5",
+  urgent:
+    "bg-orange-600 hover:bg-orange-700 active:bg-orange-800 text-white shadow-lg hover:shadow-2xl animate-pulse-subtle",
+};
+
+const sizeClasses = {
+  sm: "px-4 py-2 text-sm",
+  md: "px-6 py-3 text-base",
+  lg: "px-8 py-4 text-lg",
+};
+
+const widthClass = fullWidth ? "w-full" : "";
+
+const classes = `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${widthClass} ${additionalClasses}`;
+---
+
+<a href={href} class={classes}>
+  {icon && <span class="mr-2 text-xl">{icon}</span>}
+  <slot />
+</a>
+
+<style>
+  @keyframes pulse-subtle {
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.02);
+    }
+  }
+
+  .animate-pulse-subtle {
+    animation: pulse-subtle 2s ease-in-out infinite;
+  }
+</style>

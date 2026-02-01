@@ -1,0 +1,418 @@
+---
+import CTAButton from "../components/CTAButton.astro";
+import FloatingWhatsApp from "../components/FloatingWhatsApp.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import SectionWrapper from "../components/SectionWrapper.astro";
+import { siteConfig } from "../config/siteConfig";
+import serviciosData from "../data/servicios.json";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const marcas = serviciosData.marcas;
+---
+
+<BaseLayout
+  title="Sobre Nosotros - Cerrajería de Confianza en Tarragona"
+  description="Conoce a tu cerrajero de confianza en el interior de Tarragona. Profesionales locales con años de experiencia, disponibles 24/7 para cualquier emergencia."
+>
+  <Header />
+
+  <main class="pt-20">
+    <!-- Hero Section -->
+    <section
+      class="relative bg-gradient-to-br from-blue-900 via-blue-800 to-slate-900 text-white py-16 sm:py-24 overflow-hidden"
+    >
+      <!-- Background Pattern -->
+      <div
+        class="absolute inset-0 opacity-10"
+        style="background-image: url(&quot;data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E&quot;);"
+      >
+      </div>
+
+      <div class="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+        <div class="text-center">
+          <!-- Badge -->
+          <div
+            class="inline-flex items-center space-x-2 bg-amber-500/20 text-amber-300 px-4 py-2 rounded-full text-sm font-medium mb-6"
+          >
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+              <path
+                fill-rule="evenodd"
+                d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                clip-rule="evenodd"></path>
+            </svg>
+            <span>Tu cerrajero de confianza</span>
+          </div>
+
+          <!-- Main Heading -->
+          <h1
+            class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 leading-tight"
+          >
+            Sobre Nosotros
+          </h1>
+
+          <!-- Subheading -->
+          <p
+            class="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed"
+          >
+            Profesionales locales con años de experiencia en cerrajería,
+            comprometidos con la seguridad de tu hogar y negocio.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <SectionWrapper bgClass="bg-white">
+      <div class="mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-6">
+              Cerrajeros locales que conocen tu zona
+            </h2>
+            <div class="space-y-4 text-slate-600 leading-relaxed">
+              <p>
+                Somos un equipo de cerrajeros profesionales especializados en el
+                <strong class="text-slate-900">interior de Tarragona</strong>.
+                Conocemos cada municipio, cada calle y cada urbanización de la
+                zona, lo que nos permite llegar rápidamente cuando más nos
+                necesitas.
+              </p>
+              <p>
+                Nuestra misión es ofrecer un servicio de cerrajería
+                <strong class="text-slate-900"
+                  >rápido, profesional y honesto</strong
+                >. Sabemos que quedarse fuera de casa o tener un problema con la
+                cerradura puede ser estresante, por eso nos comprometemos a
+                resolver tu situación de la manera más eficiente posible.
+              </p>
+              <p>
+                Trabajamos con las
+                <strong class="text-slate-900"
+                  >mejores marcas del mercado</strong
+                >
+                y utilizamos técnicas actualizadas para garantizar la seguridad de
+                tu hogar o negocio.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </SectionWrapper>
+
+    <!-- Values Section -->
+    <SectionWrapper bgClass="bg-slate-50">
+      <div class="mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+        <div class="text-center mb-12">
+          <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-4">
+            Nuestros valores
+          </h2>
+          <p class="text-slate-600 max-w-2xl mx-auto">
+            Estos son los principios que guían nuestro trabajo cada día
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Value 1 -->
+          <div
+            class="bg-white rounded-xl p-6 text-center shadow-md hover:shadow-lg transition"
+          >
+            <div
+              class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <svg
+                class="w-7 h-7 text-blue-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <h3 class="font-bold text-slate-900 mb-2">Honestidad</h3>
+            <p class="text-sm text-slate-600">
+              Presupuesto claro antes de empezar. Sin sorpresas ni costes
+              ocultos.
+            </p>
+          </div>
+
+          <!-- Value 2 -->
+          <div
+            class="bg-white rounded-xl p-6 text-center shadow-md hover:shadow-lg transition"
+          >
+            <div
+              class="w-14 h-14 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <svg
+                class="w-7 h-7 text-amber-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+            </div>
+            <h3 class="font-bold text-slate-900 mb-2">Rapidez</h3>
+            <p class="text-sm text-slate-600">
+              Llegamos en menos de 30 minutos a cualquier punto de nuestra zona.
+            </p>
+          </div>
+
+          <!-- Value 3 -->
+          <div
+            class="bg-white rounded-xl p-6 text-center shadow-md hover:shadow-lg transition"
+          >
+            <div
+              class="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <svg
+                class="w-7 h-7 text-green-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="font-bold text-slate-900 mb-2">Profesionalidad</h3>
+            <p class="text-sm text-slate-600">
+              Técnicos cualificados con formación continua en las últimas
+              técnicas.
+            </p>
+          </div>
+
+          <!-- Value 4 -->
+          <div
+            class="bg-white rounded-xl p-6 text-center shadow-md hover:shadow-lg transition"
+          >
+            <div
+              class="w-14 h-14 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <svg
+                class="w-7 h-7 text-purple-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="font-bold text-slate-900 mb-2">Cercanía</h3>
+            <p class="text-sm text-slate-600">
+              Somos vecinos de la zona. Nos importa tu seguridad y tranquilidad.
+            </p>
+          </div>
+        </div>
+      </div>
+    </SectionWrapper>
+
+    <!-- Brands Section -->
+    <SectionWrapper bgClass="bg-white border-y border-slate-200">
+      <div class="mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+        <div class="text-center mb-8">
+          <h2 class="text-xl font-bold text-slate-900 mb-2">
+            Trabajamos con las mejores marcas
+          </h2>
+          <p class="text-slate-600 text-sm">
+            Instalamos y reparamos cerraduras de los fabricantes más reconocidos
+          </p>
+        </div>
+        <div class="flex flex-wrap justify-center gap-6 sm:gap-10">
+          {
+            marcas.map((marca) => (
+              <span class="text-slate-400 font-semibold text-lg sm:text-xl hover:text-blue-600 transition">
+                {marca}
+              </span>
+            ))
+          }
+        </div>
+      </div>
+    </SectionWrapper>
+
+    <!-- Why Trust Us Section -->
+    <SectionWrapper bgClass="bg-slate-50">
+      <div class="mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+        <div class="text-center mb-12">
+          <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-4">
+            ¿Por qué confiar en nosotros?
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Reason 1 -->
+          <div
+            class="flex items-start space-x-4 bg-white p-6 rounded-xl shadow-sm"
+          >
+            <div
+              class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0"
+            >
+              <svg
+                class="w-5 h-5 text-green-600"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                  clip-rule="evenodd"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-slate-900 mb-1">
+                Sin coste de desplazamiento
+              </h3>
+              <p class="text-sm text-slate-600">
+                No cobramos desplazamiento en nuestra zona de cobertura. El
+                precio que te damos es el precio final.
+              </p>
+            </div>
+          </div>
+
+          <!-- Reason 2 -->
+          <div
+            class="flex items-start space-x-4 bg-white p-6 rounded-xl shadow-sm"
+          >
+            <div
+              class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0"
+            >
+              <svg
+                class="w-5 h-5 text-green-600"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                  clip-rule="evenodd"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-slate-900 mb-1">
+                Presupuesto antes de empezar
+              </h3>
+              <p class="text-sm text-slate-600">
+                Siempre te informamos del coste antes de realizar cualquier
+                trabajo. Tú decides si seguir adelante.
+              </p>
+            </div>
+          </div>
+
+          <!-- Reason 3 -->
+          <div
+            class="flex items-start space-x-4 bg-white p-6 rounded-xl shadow-sm"
+          >
+            <div
+              class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0"
+            >
+              <svg
+                class="w-5 h-5 text-green-600"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                  clip-rule="evenodd"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-slate-900 mb-1">
+                Garantía en todos los trabajos
+              </h3>
+              <p class="text-sm text-slate-600">
+                Ofrecemos garantía en mano de obra y materiales. Si hay algún
+                problema, lo solucionamos.
+              </p>
+            </div>
+          </div>
+
+          <!-- Reason 4 -->
+          <div
+            class="flex items-start space-x-4 bg-white p-6 rounded-xl shadow-sm"
+          >
+            <div
+              class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0"
+            >
+              <svg
+                class="w-5 h-5 text-green-600"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                  clip-rule="evenodd"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-slate-900 mb-1">Factura detallada</h3>
+              <p class="text-sm text-slate-600">
+                Emitimos factura con todos los conceptos desglosados. Pago en
+                efectivo o tarjeta.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </SectionWrapper>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-gradient-to-r from-blue-900 to-slate-900">
+      <div class="mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl text-center">
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4">
+          ¿Necesitas un cerrajero de confianza?
+        </h2>
+        <p class="text-blue-200 text-lg mb-8 max-w-2xl mx-auto">
+          Estamos disponibles las 24 horas del día, los 7 días de la semana.
+          Llámanos y te atendemos al momento.
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <CTAButton
+            href={`tel:${siteConfig.phone.raw}`}
+            variant="urgent"
+            size="lg"
+          >
+            <svg
+              class="w-5 h-5 mr-2"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+              ></path>
+            </svg>
+            Llamar: {siteConfig.phone.formatted}
+          </CTAButton>
+          <CTAButton href="/contacto" variant="secondary" size="lg">
+            Contactar
+          </CTAButton>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+  <FloatingWhatsApp />
+</BaseLayout>

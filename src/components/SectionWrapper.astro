@@ -1,0 +1,27 @@
+---
+interface Props {
+  as?: "section" | "div" | "main";
+  bgClass?: string;
+  containerClass?: string;
+  noPadding?: boolean;
+}
+
+const {
+  as = "section",
+  bgClass = "",
+  containerClass = "",
+  noPadding = false,
+} = Astro.props;
+
+const Tag = as;
+
+const paddingClasses = noPadding ? "" : "py-12 sm:py-16 lg:py-20";
+
+const containerBase = "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8";
+---
+
+<Tag class={`${paddingClasses} ${bgClass}`}>
+  <div class={`${containerBase} ${containerClass}`}>
+    <slot />
+  </div>
+</Tag>

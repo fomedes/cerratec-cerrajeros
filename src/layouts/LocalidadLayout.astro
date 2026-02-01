@@ -1,0 +1,159 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import { siteConfig } from '../config/siteConfig';
+
+interface Props {
+  municipio: string;
+  provincia: string;
+  descripcion: string;
+  imagen?: string;
+  codigoPostal?: string;
+}
+
+const { municipio, provincia, descripcion, imagen, codigoPostal } = Astro.props;
+
+const title = `Cerrajería 24 horas en ${municipio}, ${provincia}`;
+const fullDescription = `${descripcion} Servicio de cerrajería urgente en ${municipio} disponible 24/7. Profesionales cualificados a tu disposición.`;
+
+// Structured Data for Local SEO
+const schemaLocalBusiness = {
+  "@context": "https://schema.org",
+  "@type": "Locksmith",
+  "name": `${siteConfig.name} en ${municipio}`,
+  "image": imagen || "/images/og-default.jpg",
+  "telephone": siteConfig.phone.raw,
+  "email": siteConfig.email,
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": municipio,
+    "addressRegion": provincia,
+    "postalCode": codigoPostal,
+    "addressCountry": "ES"
+  },
+  "url": Astro.url.href,
+  "areaServed": {
+    "@type": "City",
+    "name": municipio
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "opens": "00:00",
+    "closes": "23:59"
+  },
+  "priceRange": "€€",
+  "sameAs": siteConfig.social.map(s => s.url),
+  "@id": Astro.url.href
+};
+
+// FAQ Schema for better SEO
+const schemaFAQ = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": `¿Cuánto tardáis en llegar a ${municipio}?`,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": `Normalmente llegamos en menos de 30 minutos a cualquier punto de ${municipio}. Conocemos bien la zona y tenemos técnicos cercanos para garantizar una respuesta rápida.`
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuánto cuesta una apertura de puerta urgente?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": `El precio de una apertura de puerta en ${municipio} parte desde 60€, dependiendo del tipo de cerradura y la hora del servicio. Siempre damos presupuesto antes de empezar el trabajo.`
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Trabajáis fines de semana y festivos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": `Sí, ofrecemos servicio 24 horas, los 7 días de la semana, incluyendo fines de semana y festivos. Siempre hay un cerrajero disponible para atenderte en ${municipio}.`
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Hay cargo por desplazamiento?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": `No cobramos desplazamiento en ${municipio} ni en su zona local. El precio que te damos incluye todo el servicio.`
+      }
+    }
+  ]
+};
+
+// Service Schema
+const schemaService = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Locksmith Service",
+  "provider": {
+    "@type": "Locksmith",
+    "name": siteConfig.name,
+    "telephone": siteConfig.phone.raw
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": municipio,
+    "containedInPlace": {
+      "@type": "AdministrativeArea",
+      "name": provincia
+    }
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Servicios de Cerrajería",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Apertura de Puertas",
+          "description": "Apertura de puertas sin daños, servicio urgente 24/7"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Cambio de Cerraduras",
+          "description": "Instalación y cambio de cerraduras de alta seguridad"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Cerrajería de Autos",
+          "description": "Apertura de vehículos y duplicado de llaves de coche"
+        }
+      }
+    ]
+  }
+};
+---
+
+<BaseLayout title={title} description={fullDescription}>
+  <!-- Structured Data - LocalBusiness -->
+  <script type="application/ld+json" set:html={JSON.stringify(schemaLocalBusiness)} />
+
+  <!-- Structured Data - FAQ -->
+  <script type="application/ld+json" set:html={JSON.stringify(schemaFAQ)} />
+
+  <!-- Structured Data - Service -->
+  <script type="application/ld+json" set:html={JSON.stringify(schemaService)} />
+
+  <slot />
+</BaseLayout>

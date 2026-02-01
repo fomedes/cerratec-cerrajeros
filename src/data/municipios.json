@@ -1,0 +1,192 @@
+{
+  "grupos": [
+    {
+      "id": 1,
+      "nombre": "Grupo 1 - Alrededores de Tarragona",
+      "municipios": [
+        {
+          "id": "canonja",
+          "nombre": "La Canonja",
+          "slug": "canonja",
+          "provincia": "Tarragona",
+          "descripcion": "Servicio de cerrajería 24 horas en La Canonja. Conocemos cada rincón del municipio y llegamos rápidamente a cualquier punto.",
+          "poblacion": "6500",
+          "codigoPostal": "43110",
+          "destacados": ["Centro urbano", "Zona industrial"]
+        },
+        {
+          "id": "constanti",
+          "nombre": "Constantí",
+          "slug": "constanti",
+          "provincia": "Tarragona",
+          "descripcion": "Cerrajeros profesionales en Constantí disponibles 24/7. Servicio urgente en todo el municipio.",
+          "poblacion": "6800",
+          "codigoPostal": "43120",
+          "destacados": ["Casco antiguo", "Polígono industrial Francolí"]
+        },
+        {
+          "id": "morell",
+          "nombre": "El Morell",
+          "slug": "morell",
+          "provincia": "Tarragona",
+          "descripcion": "Cerrajería de emergencia en El Morell. Atención inmediata en apertura de puertas y cambio de cerraduras.",
+          "poblacion": "4000",
+          "codigoPostal": "43760",
+          "destacados": ["Centro histórico", "Urbanizaciones periféricas"]
+        },
+        {
+          "id": "pobla-mafumet",
+          "nombre": "La Pobla de Mafumet",
+          "slug": "pobla-mafumet",
+          "provincia": "Tarragona",
+          "descripcion": "Servicio de cerrajería urgente en La Pobla de Mafumet. Especialistas en todo tipo de cerraduras.",
+          "poblacion": "3500",
+          "codigoPostal": "43770",
+          "destacados": ["Núcleo urbano", "Zona residencial"]
+        },
+        {
+          "id": "perafort",
+          "nombre": "Perafort",
+          "slug": "perafort",
+          "provincia": "Tarragona",
+          "descripcion": "Cerrajeros en Perafort disponibles las 24 horas. Servicio rápido y profesional.",
+          "poblacion": "1700",
+          "codigoPostal": "43380",
+          "destacados": ["Centro del pueblo", "Zona rural"]
+        },
+        {
+          "id": "pallaresos",
+          "nombre": "Els Pallaresos",
+          "slug": "pallaresos",
+          "provincia": "Tarragona",
+          "descripcion": "Cerrajería 24 horas en Els Pallaresos. Profesionales cualificados a tu servicio.",
+          "poblacion": "2800",
+          "codigoPostal": "43780",
+          "destacados": ["Centro urbano", "Urbanizaciones"]
+        },
+        {
+          "id": "catllar",
+          "nombre": "El Catllar",
+          "slug": "catllar",
+          "provincia": "Tarragona",
+          "descripcion": "Servicio de cerrajería urgente en El Catllar. Atención inmediata 24/7.",
+          "poblacion": "3600",
+          "codigoPostal": "43764",
+          "destacados": ["Núcleo antiguo", "Zona nueva"]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "nombre": "Grupo 2 - Comarca del Baix Camp",
+      "municipios": [
+        {
+          "id": "riudoms",
+          "nombre": "Riudoms",
+          "slug": "riudoms",
+          "provincia": "Tarragona",
+          "descripcion": "Cerrajería profesional en Riudoms disponible 24 horas. Servicio de urgencia inmediato.",
+          "poblacion": "6800",
+          "codigoPostal": "43330",
+          "destacados": ["Centro histórico", "Zona residencial"]
+        },
+        {
+          "id": "selva",
+          "nombre": "La Selva del Camp",
+          "slug": "selva",
+          "provincia": "Tarragona",
+          "descripcion": "Cerrajeros en La Selva del Camp las 24 horas. Atención rápida y profesional.",
+          "poblacion": "5700",
+          "codigoPostal": "43470",
+          "destacados": ["Casco antiguo", "Zona de l'Estació"]
+        },
+        {
+          "id": "borges",
+          "nombre": "Borges del Camp",
+          "slug": "borges",
+          "provincia": "Tarragona",
+          "descripcion": "Servicio de cerrajería urgente en Borges del Camp. Disponibles 24/7.",
+          "poblacion": "950",
+          "codigoPostal": "43350",
+          "destacados": ["Centro del municipio"]
+        },
+        {
+          "id": "montbrio",
+          "nombre": "Montbrió del Camp",
+          "slug": "montbrio",
+          "provincia": "Tarragona",
+          "descripcion": "Cerrajería 24 horas en Montbrió del Camp. Profesionales especializados.",
+          "poblacion": "2600",
+          "codigoPostal": "43340",
+          "destacados": ["Núcleo urbano", "Zonas periféricas"]
+        },
+        {
+          "id": "riudecanyes",
+          "nombre": "Riudecanyes",
+          "slug": "riudecanyes",
+          "provincia": "Tarragona",
+          "descripcion": "Cerrajeros urgentes en Riudecanyes. Servicio rápido 24 horas.",
+          "poblacion": "1250",
+          "codigoPostal": "43771",
+          "destacados": ["Centro histórico"]
+        },
+        {
+          "id": "castellvell",
+          "nombre": "Castellvell del Camp",
+          "slug": "castellvell",
+          "provincia": "Tarragona",
+          "descripcion": "Servicio de cerrajería en Castellvell del Camp disponible 24/7.",
+          "poblacion": "3500",
+          "codigoPostal": "43311",
+          "destacados": ["Núcleo antiguo", "Zona residencial"]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "nombre": "Grupo 3 - Interior Tarragona",
+      "municipios": [
+        {
+          "id": "alcover",
+          "nombre": "Alcover",
+          "slug": "alcover",
+          "provincia": "Tarragona",
+          "descripcion": "Cerrajería profesional en Alcover 24 horas. Servicio urgente en todo el municipio.",
+          "poblacion": "5600",
+          "codigoPostal": "43460",
+          "destacados": ["Casco histórico", "Zona industrial"]
+        },
+        {
+          "id": "pla",
+          "nombre": "El Pla de Santa Maria",
+          "slug": "pla",
+          "provincia": "Tarragona",
+          "descripcion": "Cerrajeros en El Pla de Santa Maria disponibles 24/7. Atención inmediata.",
+          "poblacion": "1000",
+          "codigoPostal": "43761",
+          "destacados": ["Centro del pueblo"]
+        },
+        {
+          "id": "brafim",
+          "nombre": "Bràfim",
+          "slug": "brafim",
+          "provincia": "Tarragona",
+          "descripcion": "Servicio de cerrajería urgente en Bràfim. Profesionales cualificados 24 horas.",
+          "poblacion": "530",
+          "codigoPostal": "43812",
+          "destacados": ["Núcleo urbano"]
+        },
+        {
+          "id": "vilallonga",
+          "nombre": "Vilallonga del Camp",
+          "slug": "vilallonga",
+          "provincia": "Tarragona",
+          "descripcion": "Cerrajería 24 horas en Vilallonga del Camp. Servicio rápido y eficaz.",
+          "poblacion": "2200",
+          "codigoPostal": "43511",
+          "destacados": ["Centro histórico", "Zona residencial"]
+        }
+      ]
+    }
+  ]
+}
