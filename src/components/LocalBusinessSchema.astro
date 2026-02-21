@@ -1,0 +1,32 @@
+---
+import { siteConfig } from "../config/siteConfig";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "Cerratec Cerrajeros",
+  telephone: siteConfig.phone.raw,
+  url: Astro.site?.href ?? "https://cerratec.es",
+  areaServed: {
+    "@type": "AdministrativeArea",
+    name: "Tarragona",
+  },
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday",
+    ],
+    opens: "00:00",
+    closes: "23:59",
+  },
+  serviceType: "Locksmith",
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

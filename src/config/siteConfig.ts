@@ -3,9 +3,9 @@ import type { SocialIconKey } from "../icons/socialIcons";
 export const siteConfig = {
   name: "Cerrajería Interior",
   phone: {
-    raw: "+34123456789",
-    formatted: "123 45 67 89",
-    whatsapp: "34123456789",
+    raw: "+34687569885",
+    formatted: "687 56 98 85",
+    whatsapp: "34687569885",
   },
   email: "info@cerrajeriainterior.com",
 

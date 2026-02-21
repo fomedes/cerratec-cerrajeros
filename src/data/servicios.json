@@ -11,7 +11,7 @@
         "Todo tipo de puertas",
         "Profesionales cualificados"
       ],
-      "precio": "Desde 60€"
+      "precio": "Desde 95€"
     },
     {
       "id": "cambio-cerraduras",
@@ -24,7 +24,7 @@
         "Garantía del fabricante",
         "Asesoramiento personalizado"
       ],
-      "precio": "Desde 80€"
+      "precio": "Desde 110€"
     },
     {
       "id": "cerraduras-seguridad",
@@ -37,7 +37,7 @@
         "Cilindros antitaladro",
         "Certificados de seguridad"
       ],
-      "precio": "Desde 120€"
+      "precio": "Desde 180€"
     },
     {
       "id": "bombines",
@@ -50,7 +50,7 @@
         "Compatibles con todo tipo de puertas",
         "Instalación inmediata"
       ],
-      "precio": "Desde 50€"
+      "precio": "Desde 90€"
     },
     {
       "id": "cerrajeria-autos",
@@ -63,7 +63,7 @@
         "Programación de mandos",
         "Atención 24 horas"
       ],
-      "precio": "Desde 70€"
+      "precio": "Desde 110€"
     },
     {
       "id": "puertas-blindadas",
@@ -77,45 +77,6 @@
         "Garantía de fábrica"
       ],
       "precio": "Consultar"
-    },
-    {
-      "id": "cajas-fuertes",
-      "titulo": "Cajas Fuertes",
-      "descripcion": "Instalación, apertura y reparación de cajas fuertes. Servicio especializado.",
-      "icon": "🏦",
-      "caracteristicas": [
-        "Todo tipo de cajas fuertes",
-        "Apertura sin destrucción",
-        "Instalación y anclaje",
-        "Mantenimiento"
-      ],
-      "precio": "Desde 90€"
-    },
-    {
-      "id": "duplicado-llaves",
-      "titulo": "Duplicado de Llaves",
-      "descripcion": "Duplicado de todo tipo de llaves: casa, coche, moto, candados. Servicio rápido.",
-      "icon": "🔐",
-      "caracteristicas": [
-        "Llaves de seguridad",
-        "Llaves de coche con chip",
-        "Llaves de trasteros",
-        "Servicio inmediato"
-      ],
-      "precio": "Desde 15€"
-    },
-    {
-      "id": "reparacion-cierres",
-      "titulo": "Reparación de Cierres",
-      "descripcion": "Reparación de cierres metálicos, persianas y sistemas de seguridad comerciales.",
-      "icon": "🏪",
-      "caracteristicas": [
-        "Cierres metálicos",
-        "Persianas de seguridad",
-        "Mantenimiento preventivo",
-        "Atención urgente"
-      ],
-      "precio": "Desde 75€"
     }
   ],
   "caracteristicasGenerales": [

@@ -1,16 +1,17 @@
 ---
 import "../styles/global.css";
+import LocalBusinessSchema from "../components/LocalBusinessSchema.astro";
 
 interface Props {
-  title: string;
-  description: string;
+  title?: string;
+  description?: string;
   canonicalURL?: string;
   ogImage?: string;
 }
 
 const {
-  title,
-  description,
+  title = "Cerrajero Urgente en Tarragona 24h",
+  description = "Cerrajeros 24 horas en Tarragona. Servicio rápido y profesional.",
   canonicalURL = Astro.url.href,
   ogImage = "/images/og-default.jpg",
 } = Astro.props;
@@ -58,6 +59,9 @@ const fullTitle = `${title} | ${siteName}`;
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Structured Data -->
+    <LocalBusinessSchema />
   </head>
   <body class="antialiased bg-slate-50 text-slate-900 min-h-screen">
     <slot />

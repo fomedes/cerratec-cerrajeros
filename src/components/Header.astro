@@ -35,12 +35,12 @@ const grupos = municipiosData.grupos;
           Servicios
         </a>
 
-        <!-- Localidades Dropdown -->
+        <!-- Poblaciones Dropdown -->
         <div class="relative group">
           <button
             class="flex items-center text-slate-700 hover:text-amber-600 font-medium transition"
           >
-            Localidades
+            Poblaciones
             <svg
               class="w-4 h-4 ml-1 transition-transform group-hover:rotate-180"
               fill="none"
@@ -77,7 +77,7 @@ const grupos = municipiosData.grupos;
                               class="flex items-center px-2 py-1.5 text-sm text-slate-700 hover:bg-amber-50 hover:text-amber-700 rounded-lg transition"
                             >
                               <img
-                                src={`/images/crests/${municipio.slug}.png`}
+                                src={`/images/crests/${municipio.slug}.webp`}
                                 alt=""
                                 class="w-5 h-5 mr-2 object-contain"
                               />
@@ -206,7 +206,10 @@ const grupos = municipiosData.grupos;
           </button>
 
           <!-- Localidades List with max-height and scroll -->
-          <div id="localidades-list" class="hidden mt-1 max-h-[60vh] overflow-y-auto">
+          <div
+            id="localidades-list"
+            class="hidden mt-1 max-h-[60vh] overflow-y-auto"
+          >
             {
               grupos.map((grupo, index) => (
                 <div class="grupo-accordion border-l-2 border-slate-200 ml-4">
@@ -216,7 +219,9 @@ const grupos = municipiosData.grupos;
                   >
                     <span>{grupo.nombre.replace(/Grupo \d+ - /, "")}</span>
                     <span class="flex items-center">
-                      <span class="text-xs text-slate-400 mr-2">{grupo.municipios.length}</span>
+                      <span class="text-xs text-slate-400 mr-2">
+                        {grupo.municipios.length}
+                      </span>
                       <svg
                         class="grupo-chevron w-4 h-4 transition-transform"
                         fill="none"
@@ -227,7 +232,8 @@ const grupos = municipiosData.grupos;
                           stroke-linecap="round"
                           stroke-linejoin="round"
                           stroke-width="2"
-                          d="M19 9l-7 7-7-7" />
+                          d="M19 9l-7 7-7-7"
+                        />
                       </svg>
                     </span>
                   </button>
@@ -238,7 +244,7 @@ const grupos = municipiosData.grupos;
                         class="flex items-center text-slate-600 hover:bg-amber-50 hover:text-amber-700 transition px-4 py-2 rounded-lg text-sm"
                       >
                         <img
-                          src={`/images/crests/${municipio.slug}.png`}
+                          src={`/images/crests/${municipio.slug}.webp`}
                           alt=""
                           class="w-5 h-5 mr-2 object-contain"
                         />
@@ -298,14 +304,18 @@ const grupos = municipiosData.grupos;
   grupoToggles.forEach((toggle) => {
     toggle.addEventListener("click", () => {
       const grupoIndex = toggle.getAttribute("data-grupo");
-      const grupoList = document.querySelector(`[data-grupo-list="${grupoIndex}"]`);
+      const grupoList = document.querySelector(
+        `[data-grupo-list="${grupoIndex}"]`,
+      );
       const chevron = toggle.querySelector(".grupo-chevron");
 
       // Close other groups (accordion behavior)
       grupoToggles.forEach((otherToggle) => {
         const otherIndex = otherToggle.getAttribute("data-grupo");
         if (otherIndex !== grupoIndex) {
-          const otherList = document.querySelector(`[data-grupo-list="${otherIndex}"]`);
+          const otherList = document.querySelector(
+            `[data-grupo-list="${otherIndex}"]`,
+          );
           const otherChevron = otherToggle.querySelector(".grupo-chevron");
           otherList?.classList.add("hidden");
           otherChevron?.classList.remove("rotate-180");
