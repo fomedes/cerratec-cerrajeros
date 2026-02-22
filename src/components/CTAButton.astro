@@ -6,6 +6,8 @@ interface Props {
   fullWidth?: boolean;
   icon?: string;
   class?: string;
+  target?: string;
+  rel?: string;
 }
 
 const {
@@ -15,18 +17,20 @@ const {
   fullWidth = false,
   icon,
   class: additionalClasses = "",
+  target,
+  rel,
 } = Astro.props;
 
 const baseClasses =
-  "inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-300 touch-manipulation";
+  "inline-flex items-center justify-center font-semibold rounded-xl transition-all duration-200 ease-out focus:outline-none focus:ring-2 focus:ring-offset-2 active:scale-[0.98] touch-manipulation";
 
 const variantClasses = {
   primary:
-    "bg-blue-900 hover:bg-blue-950 active:bg-slate-900 text-white shadow-lg hover:shadow-xl hover:-translate-y-0.5",
+    "bg-blue-900 text-white hover:bg-blue-800 shadow-md hover:shadow-lg focus:ring-blue-900",
   secondary:
-    "bg-green-500 hover:bg-green-600 active:bg-green-700 text-white shadow-lg hover:shadow-xl hover:-translate-y-0.5",
+    "bg-green-600 text-white hover:bg-green-500 shadow-md hover:shadow-lg focus:ring-green-600",
   urgent:
-    "bg-orange-600 hover:bg-orange-700 active:bg-orange-800 text-white shadow-lg hover:shadow-2xl animate-pulse-subtle",
+    "bg-orange-600 text-white hover:bg-orange-500 shadow-md hover:shadow-lg focus:ring-orange-600",
 };
 
 const sizeClasses = {
@@ -40,23 +44,7 @@ const widthClass = fullWidth ? "w-full" : "";
 const classes = `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${widthClass} ${additionalClasses}`;
 ---
 
-<a href={href} class={classes}>
-  {icon && <span class="mr-2 text-xl">{icon}</span>}
+<a href={href} class={classes} target={target} rel={rel}>
+  {icon && <span class="mr-2 text-lg leading-none">{icon}</span>}
   <slot />
 </a>
-
-<style>
-  @keyframes pulse-subtle {
-    0%,
-    100% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.02);
-    }
-  }
-
-  .animate-pulse-subtle {
-    animation: pulse-subtle 2s ease-in-out infinite;
-  }
-</style>

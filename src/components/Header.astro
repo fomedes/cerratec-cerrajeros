@@ -1,6 +1,7 @@
 ---
 import { siteConfig } from "../config/siteConfig";
 import municipiosData from "../data/municipios.json";
+import SocialLinks from "./SocialLinks.astro";
 
 const grupos = municipiosData.grupos;
 ---
@@ -15,7 +16,7 @@ const grupos = municipiosData.grupos;
       <div class="flex items-center shrink-0">
         <a href="/" class="flex items-center space-x-1 sm:space-x-2">
           <div class="text-base sm:text-xl font-bold text-blue-900">
-            Marca<span class="hidden sm:inline"> Cerrajería</span>
+            CerraNova<span class="hidden sm:inline"> Cerrajeros 24h</span>
           </div>
         </a>
       </div>
@@ -110,10 +111,14 @@ const grupos = municipiosData.grupos;
 
       <!-- Mobile-First CTAs -->
       <div class="flex items-center space-x-2 sm:space-x-3">
+        <!-- Social Links - Desktop only -->
+        <div class="hidden lg:flex items-center mr-2">
+          <SocialLinks />
+        </div>
         <!-- Call Button - Prominent on Mobile -->
         <a
           href={`tel:${siteConfig.phone.raw}`}
-          class="flex items-center justify-center bg-blue-900 hover:bg-blue-950 active:bg-slate-900 text-white px-3 sm:px-5 py-2 sm:py-2.5 rounded-lg font-semibold transition shadow-lg touch-manipulation"
+          class="flex items-center justify-center bg-blue-900/95 hover:bg-blue-800 text-white px-3 sm:px-5 py-2 sm:py-2.5 rounded-xl font-semibold transition-all duration-200 ease-out shadow-md hover:shadow-lg active:scale-[0.98]focus:outline-none focus:ring-2 focus:ring-blue-900 focus:ring-offset-2 touch-manipulation"
           aria-label="Llamar ahora"
         >
           <svg

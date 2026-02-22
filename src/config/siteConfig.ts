@@ -1,13 +1,13 @@
 import type { SocialIconKey } from "../icons/socialIcons";
 
 export const siteConfig = {
-  name: "Cerrajería Interior",
+  name: "CerraNova Cerrajeros 24h",
   phone: {
     raw: "+34687569885",
     formatted: "687 56 98 85",
     whatsapp: "34687569885",
   },
-  email: "info@cerrajeriainterior.com",
+  email: "info@cerranovacerrajeros.com",
 
   social: [
     {

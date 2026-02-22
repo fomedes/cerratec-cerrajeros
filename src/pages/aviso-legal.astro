@@ -1,0 +1,119 @@
+---
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import { siteConfig } from "../config/siteConfig";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Aviso Legal - Cerrajería Interior"
+  description="Aviso legal e información legal de Cerrajería Interior Tarragona, conforme a la Ley de Servicios de la Sociedad de la Información (LSSI)."
+>
+  <Header />
+
+  <main class="pt-28 pb-16 bg-white">
+    <div class="mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
+      <h1 class="text-3xl font-bold text-slate-900 mb-2">Aviso Legal</h1>
+      <p class="text-sm text-slate-500 mb-10">
+        Última actualización: enero de 2026
+      </p>
+
+      <div class="prose prose-slate max-w-none space-y-8 text-slate-700 leading-relaxed">
+
+        <section>
+          <h2 class="text-xl font-bold text-slate-900 mb-3">1. Identificación del titular</h2>
+          <p>
+            En cumplimiento de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE), se informa que el titular de este sitio web es:
+          </p>
+          <ul class="mt-3 space-y-1 list-none pl-0">
+            <li><strong>Denominación:</strong> Cerrajería Interior</li>
+            <li><strong>Actividad:</strong> Servicios profesionales de cerrajería</li>
+            <li><strong>Ámbito de servicio:</strong> Interior de Tarragona (Cataluña, España)</li>
+            <li><strong>Correo electrónico:</strong> <a href={`mailto:${siteConfig.email}`} class="text-amber-600 hover:underline">{siteConfig.email}</a></li>
+            <li><strong>Teléfono:</strong> <a href={`tel:${siteConfig.phone.raw}`} class="text-amber-600 hover:underline">{siteConfig.phone.formatted}</a></li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-bold text-slate-900 mb-3">2. Objeto y ámbito de aplicación</h2>
+          <p>
+            El presente Aviso Legal regula el acceso y uso del sitio web de Cerrajería Interior, cuya finalidad es informar sobre los servicios de cerrajería disponibles en el interior de la provincia de Tarragona, facilitar el contacto con los usuarios y posibilitar la solicitud de servicios.
+          </p>
+          <p class="mt-3">
+            El acceso y uso de este sitio web atribuye la condición de usuario e implica la aceptación plena de las condiciones contenidas en este Aviso Legal.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-bold text-slate-900 mb-3">3. Condiciones de uso</h2>
+          <p>El usuario se compromete a:</p>
+          <ul class="mt-2 space-y-1 list-disc pl-5">
+            <li>Hacer un uso lícito del sitio web, no contrario a las leyes, la moral o el orden público.</li>
+            <li>No realizar actividades que puedan dañar, inutilizar o deteriorar el sitio web o impedir su normal funcionamiento.</li>
+            <li>No introducir virus, código malicioso u otro tipo de programas que puedan alterar el funcionamiento del sitio.</li>
+            <li>No intentar acceder a áreas restringidas del sitio web.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-bold text-slate-900 mb-3">4. Propiedad intelectual e industrial</h2>
+          <p>
+            Todos los contenidos de este sitio web —incluyendo textos, imágenes, logotipos, diseño gráfico, código fuente y estructura— son propiedad de Cerrajería Interior o de terceros que han autorizado su uso, y están protegidos por la legislación española e internacional sobre propiedad intelectual e industrial.
+          </p>
+          <p class="mt-3">
+            Queda prohibida la reproducción, distribución, comunicación pública o transformación de dichos contenidos sin autorización expresa y por escrito del titular. Cualquier uso no autorizado constituirá una infracción de los derechos de propiedad intelectual e industrial.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-bold text-slate-900 mb-3">5. Exclusión de responsabilidad</h2>
+          <div class="space-y-3">
+            <p>
+              <strong>Disponibilidad del servicio:</strong> Cerrajería Interior no garantiza la disponibilidad continua e ininterrumpida del sitio web. Podrán producirse interrupciones por mantenimiento, actualizaciones o causas ajenas a nuestro control.
+            </p>
+            <p>
+              <strong>Contenido de terceros:</strong> Este sitio puede contener enlaces a páginas externas. Cerrajería Interior no es responsable del contenido, veracidad o legalidad de dichos sitios ni asume responsabilidad alguna por los daños que pudieran derivarse de su acceso o uso.
+            </p>
+            <p>
+              <strong>Información publicada:</strong> Nos esforzamos por mantener la información actualizada y correcta. No obstante, no garantizamos la exactitud absoluta de los contenidos y nos reservamos el derecho de modificarlos sin previo aviso.
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-bold text-slate-900 mb-3">6. Política de privacidad</h2>
+          <p>
+            El tratamiento de los datos personales recogidos a través de este sitio web se rige por nuestra <a href="/politica-privacidad" class="text-amber-600 hover:underline">Política de Privacidad</a>, que forma parte integrante de este Aviso Legal.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-bold text-slate-900 mb-3">7. Legislación aplicable y jurisdicción</h2>
+          <p>
+            El presente Aviso Legal se rige por la legislación española. Para la resolución de cualquier controversia derivada del acceso o uso de este sitio web, las partes se someten, con renuncia expresa a cualquier otro fuero, a los Juzgados y Tribunales de la provincia de Tarragona, salvo que la normativa aplicable establezca otro fuero imperativo.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-bold text-slate-900 mb-3">8. Modificaciones</h2>
+          <p>
+            Cerrajería Interior se reserva el derecho de modificar el contenido de este Aviso Legal en cualquier momento. Las modificaciones entrarán en vigor desde su publicación en el sitio web. Se recomienda revisar periódicamente este documento.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-bold text-slate-900 mb-3">9. Contacto</h2>
+          <p>
+            Para cualquier consulta relacionada con este Aviso Legal, puede contactarnos en:
+          </p>
+          <p class="mt-2">
+            <a href={`mailto:${siteConfig.email}`} class="text-amber-600 hover:underline font-medium">{siteConfig.email}</a>
+          </p>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>
