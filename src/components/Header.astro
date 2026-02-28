@@ -16,7 +16,7 @@ const grupos = municipiosData.grupos;
       <div class="flex items-center shrink-0">
         <a href="/" class="flex items-center space-x-1 sm:space-x-2">
           <div class="text-base sm:text-xl font-bold text-blue-900">
-            CerraNova<span class="hidden sm:inline"> Cerrajeros 24h</span>
+            {siteConfig.name}<span class="hidden sm:inline"> 24h</span>
           </div>
         </a>
       </div>
@@ -339,11 +339,9 @@ const grupos = municipiosData.grupos;
   window.addEventListener("scroll", () => {
     if (window.scrollY > 50) {
       header.classList.add("rounded-xl", "shadow-lg");
-      header.classList.add("scale-x-90");
       header.classList.add("mt-2");
     } else {
       header.classList.remove("rounded-xl", "shadow-lg");
-      header.classList.remove("scale-x-90");
       header.classList.remove("mt-2");
     }
   });

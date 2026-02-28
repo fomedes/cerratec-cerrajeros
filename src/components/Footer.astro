@@ -14,10 +14,10 @@ const grupos = municipiosData.grupos;
       <!-- Company Info -->
       <div class="space-y-4">
         <h3 class="text-amber-400 text-lg font-bold mb-4">
-          Cerrajería Interior
+          {siteConfig.name}
         </h3>
         <p class="text-sm leading-relaxed text-slate-400">
-          Servicio profesional de cerrajería 24 horas en el interior de
+          Servicio profesional de cerrajería 24 horas en alrededores de
           Tarragona. Rápidos, confiables y siempre disponibles.
         </p>
         <SocialLinks />
@@ -68,7 +68,7 @@ const grupos = municipiosData.grupos;
                     {municipio.nombre}
                   </a>
                 </li>
-              ))
+              )),
             )
           }
           <li>
@@ -152,7 +152,7 @@ const grupos = municipiosData.grupos;
         class="flex flex-col sm:flex-row justify-between items-center space-y-3 sm:space-y-0 text-sm text-slate-500"
       >
         <p>
-          © {currentYear} Cerrajería Interior Tarragona. Todos los derechos reservados.
+          © {currentYear} - {siteConfig.name} 24h - Todos los derechos reservados.
         </p>
         <div class="flex space-x-4">
           <a href="/politica-privacidad" class="hover:text-amber-400 transition"
